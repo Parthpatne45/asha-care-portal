@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}AshaCare | Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Empowering <span>ASHA & Anganwadi</span> Workers</h1>
+        <p>Digital tools for maternal surveillance, child nutrition, immunization tracking and NCD screening — replacing paper-based methods with real-time support.</p>
+        <div class="hero-buttons">
+            {% if session.get('user') %}
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn btn-primary">Worker Login</a>
+            {% endif %}
+            <a href="{{ url_for('services') }}" class="btn btn-outline">View Services</a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Key Challenges We Solve</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-female"></i>
+                <h3>Maternal Surveillance</h3>
+                <p>Track pregnant women, antenatal check-ups, high-risk cases and delivery follow-ups digitally.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-baby"></i>
+                <h3>Child Nutrition</h3>
+                <p>Monitor growth, malnutrition status, supplementary nutrition and feeding practices of children.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-syringe"></i>
+                <h3>Immunization Tracking</h3>
+                <p>Keep digital records of vaccination schedules, due dates and missed doses for every child.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>NCD Screening</h3>
+                <p>Screen and track non-communicable diseases like diabetes, hypertension in the community.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>Paperless</h3>
+                <p>Digital Records</p>
+            </div>
+            <div class="stat-item">
+                <h3>Real-time</h3>
+                <p>Decision Support</p>
+            </div>
+            <div class="stat-item">
+                <h3>Easy</h3>
+                <p>For Field Workers</p>
+            </div>
+            <div class="stat-item">
+                <h3>Better</h3>
+                <p>Community Health</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

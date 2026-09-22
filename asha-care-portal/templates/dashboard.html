@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | AshaCare{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+    <div class="container">
+        <div class="dashboard-header">
+            <h1>Welcome, <span>{{ user.name }}</span></h1>
+            <p>{{ user.role }} | Area: {{ user.area }}</p>
+        </div>
+
+        <div class="dashboard-stats">
+            <div class="dash-card">
+                <i class="fas fa-female"></i>
+                <div>
+                    <h3>12</h3>
+                    <p>Pregnant Women</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <i class="fas fa-baby"></i>
+                <div>
+                    <h3>28</h3>
+                    <p>Children Under 5</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <i class="fas fa-syringe"></i>
+                <div>
+                    <h3>7</h3>
+                    <p>Immunizations Due</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <i class="fas fa-heartbeat"></i>
+                <div>
+                    <h3>5</h3>
+                    <p>NCD Pending</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="dash-panel">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                    <h2><i class="fas fa-list"></i> Recent Beneficiaries</h2>
+                    <a href="{{ url_for('add_beneficiary') }}" class="btn btn-primary" style="padding:8px 16px; font-size:0.9rem;">+ Add New</a>
+                </div>
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for b in beneficiaries %}
+                        <tr>
+                            <td>{{ b.name }}</td>
+                            <td>{{ b.type }}</td>
+                            <td><span class="badge">{{ b.status }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="dash-panel">
+                <h2><i class="fas fa-bell"></i> Today’s Alerts</h2>
+                <div class="notice-list">
+                    <div class="notice-item">
+                        <span class="notice-date">Due</span>
+                        <p>Immunization due for Aarav Kumar (18 months)</p>
+                    </div>
+                    <div class="notice-item">
+                        <span class="notice-date">High Risk</span>
+                        <p>Priya Sharma – 6th month pregnancy, follow-up needed</p>
+                    </div>
+                    <div class="notice-item">
+                        <span class="notice-date">Pending</span>
+                        <p>NCD screening pending for Ramesh Yadav (45 yrs)</p>
+                    </div>
+                    <div class="notice-item">
+                        <span class="notice-date">Nutrition</span>
+                        <p>Growth monitoring due for 4 children this week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

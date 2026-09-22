@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Add Beneficiary | AshaCare{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-container" style="max-width:550px;">
+        <div class="auth-card">
+            <div class="auth-header">
+                <i class="fas fa-user-plus"></i>
+                <h2>Add New Beneficiary</h2>
+                <p>Register a new mother, child or adult for screening</p>
+            </div>
+
+            <form method="POST">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="Enter full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <select name="type" style="width:100%; padding:12px; border:2px solid #e2e8f0; border-radius:8px;">
+                        <option value="Pregnant">Pregnant Woman</option>
+                        <option value="Child">Child (0-5 years)</option>
+                        <option value="Mother">Lactating Mother</option>
+                        <option value="NCD">Adult for NCD Screening</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Age / Month of Pregnancy</label>
+                    <input type="text" name="age" placeholder="e.g. 25 years or 6th month" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="text" name="mobile" placeholder="Enter mobile number">
+                </div>
+                <div class="form-group">
+                    <label>Address / Area</label>
+                    <textarea name="address" rows="2" placeholder="Village / Ward / Area"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Save Beneficiary</button>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-outline" style="display:block; text-align:center; margin-top:12px; color:#4f46e5; border-color:#4f46e5;">Cancel</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
